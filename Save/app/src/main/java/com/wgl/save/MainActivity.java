@@ -58,12 +58,12 @@ public class MainActivity extends Activity {
         }
         if(!"".equals(str1)){
             et1.setText(str1);
-            Toast.makeText(this,"读取str1成功",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"读取键值成功",Toast.LENGTH_SHORT).show();
         }
         if(null != modle){
             String str2 = modle.str2;
             et2.setText(str2);
-            Toast.makeText(this,"读取str2成功",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"读取实体偏好成功",Toast.LENGTH_SHORT).show();
         }
         if(null != m){
             Modle mo = new Modle();
@@ -73,9 +73,11 @@ public class MainActivity extends Activity {
                 str += mo.key_1+mo.key_2+mo.key_3;
             }
             et3.setText(str);
+            Toast.makeText(this,"读取SQLite成功",Toast.LENGTH_SHORT).show();
         }
         if(null != file){
             tv.setText(file);
+            Toast.makeText(this,"读取SD文件成功",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -106,11 +108,12 @@ public class MainActivity extends Activity {
                 modle.key_2 = str2;
                 modle.key_3 = str3;
                 dbHelper.insert(modle);
-                Toast.makeText(this,"保存str(1、2、3)成功",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"保存SQLite成功",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.bt5:
 //                simpleFileUtil.write(str1+str2+str3);
                 sdCardFileUtil.write(str1+str2+str3);
+                Toast.makeText(this,"保存SD文件成功",Toast.LENGTH_SHORT).show();
                 break;
         }
     }
