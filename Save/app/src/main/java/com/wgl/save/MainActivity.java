@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
         MainModle modle = (MainModle) ModlePrefsUtil.getSharedPrefrencesUtil().getInformation("str2",this);
         Modle[] m = dbHelper.queryAlldata();
 //        String file = simpleFileUtil.read();
-        String file = sdCardFileUtil.read();
+        String file = sdCardFileUtil.read("SDCardFile");
         if(null != drawable){
             //sd卡中取出头像
             iv.setImageDrawable(drawable);
@@ -112,7 +112,7 @@ public class MainActivity extends Activity {
                 break;
             case R.id.bt5:
 //                simpleFileUtil.write(str1+str2+str3);
-                sdCardFileUtil.write(str1+str2+str3);
+                sdCardFileUtil.write(str1+str2+str3,"SDCardFile");
                 Toast.makeText(this,"保存SD文件成功",Toast.LENGTH_SHORT).show();
                 break;
         }
