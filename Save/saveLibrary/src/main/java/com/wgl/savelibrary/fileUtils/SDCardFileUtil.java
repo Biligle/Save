@@ -19,13 +19,13 @@ public class SDCardFileUtil {
         this.context = context;
     }
     // 文件写操作函数
-    public void write(String content) {
+    public void write(String content,String fileName) {
         if (Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) { // 如果sdcard存在
             File file = new File(Environment.getExternalStorageDirectory()
                     .toString()
                     + File.separator
-                    + "SDCardFile"); // 定义File类对象
+                    + fileName); // 定义File类对象
             if (!file.getParentFile().exists()) { // 父文件夹不存在
                 file.getParentFile().mkdirs(); // 创建文件夹
             }
@@ -46,14 +46,14 @@ public class SDCardFileUtil {
     }
 
     // 文件读操作函数
-    public String read() {
+    public String read(String fileName) {
 
         if (Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) { // 如果sdcard存在
             File file = new File(Environment.getExternalStorageDirectory()
                     .toString()
                     + File.separator
-                    + "SDCardFile"); // 定义File类对象
+                    + fileName); // 定义File类对象
             if (!file.getParentFile().exists()) { // 父文件夹不存在
                 file.getParentFile().mkdirs(); // 创建文件夹
             }
